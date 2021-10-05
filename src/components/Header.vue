@@ -1,6 +1,9 @@
 <template>
     <header>
-        
+        <form>
+            <input type="text" placeholder="Cerca il film">
+            <button>Cerca</button>
+        </form>
     </header>
 </template>
 
