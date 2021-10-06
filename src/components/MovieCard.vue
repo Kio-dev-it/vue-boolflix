@@ -14,7 +14,7 @@
                 <div><strong>Titolo orginale:</strong>{{info.original_name}}</div>
             </div>
             <div><strong>lingua:</strong><lang-flag :iso="info.original_language" :squared="false"/></div>
-            <div><strong>Voto:</strong><font-awesome-icon :icon="starSolid" v-for="elm in starMaker()" :key="elm"/><font-awesome-icon :icon="starEmpty" v-for="elm in 5 - starMaker()" :key="elm"/></div>
+            <div><strong>Voto:</strong><font-awesome-icon :icon="starSolid" v-for="elm in starMaker()" :key="elm"/><font-awesome-icon :icon="starEmpty" v-for="elm in starDestroyer()" :key="elm"/></div>
     </div>
 </template>
 
@@ -34,15 +34,25 @@ export default {
     }, 
     data() {
         return {
-            vote: 0,
             starSolid: fasStar,
             starEmpty: farStar
         }
     },
     methods:{
+        consecArrMaker(min, max) {
+            const arrStar = [];
+            for (let i = min; i < max; i++){
+                arrStar.push(i);
+            }
+            return arrStar;
+        },
         starMaker() {
-            return Math.ceil(this.info.vote_average / 2);
+            return this.consecArrMaker(0, Math.ceil( this.info.vote_average / 2 ));
+        },
+        starDestroyer(){
+            return this.consecArrMaker( Math.ceil( this.info.vote_average / 2 ), 5);
         }
+
     }
 }
 </script>
