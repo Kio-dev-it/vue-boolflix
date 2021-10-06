@@ -1,11 +1,9 @@
 <template>
     <div class="movie-card">
-        <ul v-for="(elm, index) in info" :key="index">
-            <li><strong>Titolo:</strong> {{elm.title}}</li>
-            <li><strong>Titolo orginale:</strong> {{elm.original_title}}</li>
-            <li><strong>Lingua:</strong>{{elm.original_language}}</li>
-            <li><strong>Voto:</strong> {{elm.vote_average}}</li>
-        </ul>
+            <div><strong>Titolo:</strong>{{info.title}}</div>
+            <div><strong>Titolo orginale:</strong>{{info.original_title}}</div>
+            <div><strong>lingua:</strong>{{info.original_language}}</div>
+            <div><strong>Voto:</strong>{{info.vote_average}}</div>
     </div>
 </template>
 

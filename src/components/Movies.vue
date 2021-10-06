@@ -1,6 +1,10 @@
 <template>
     <main>
-        <MovieCard :info="movieInfo"/>
+        <ul v-for="elm in movieInfo" :key="elm.id">
+            <li>
+                <MovieCard :info="elm"/>
+            </li>
+        </ul>
     </main>
 </template>
 
