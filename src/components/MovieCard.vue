@@ -1,5 +1,8 @@
 <template>
     <div class="card">
+
+            <!-- there is two v-if to manage the different key in obj movie and obj series about titles -->
+
             <div class="card__movie" v-if="info.original_title">
                 <div><strong>Titolo:</strong>{{info.title}}</div>
                 <div><strong>Titolo orginale:</strong>{{info.original_title}}</div>
