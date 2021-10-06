@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header/>
-    <Movies/>
+    <Header @searchMovie="searching"/>
+    <Movies :infoSearch="searchMovie"/>
   </div>
 </template>
 
@@ -15,6 +15,16 @@ export default {
   components: {
     Header,
     Movies
+  },
+  data(){
+    return{
+      searchMovie:""
+    }
+  },
+  methods:{
+    searching(text){
+      this.searchMovie = text;
+    }
   }
 }
 </script>

@@ -1,15 +1,20 @@
 <template>
     <header>
         <form>
-            <input type="text" placeholder="Cerca il film">
-            <button>Cerca</button>
+            <input type="text" placeholder="Cerca il film" v-model="searchText">
+            <button @click.prevent="$emit('searchMovie', searchText)">Cerca</button>
         </form>
     </header>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    data(){
+        return{
+            searchText:""
+        }
+    }
 }
 </script>
 
