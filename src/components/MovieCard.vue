@@ -1,6 +1,8 @@
 <template>
     <div class="card">
 
+            <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`" alt="" class="card__image">
+
             <!-- there is two v-if to manage the different key in obj movie and obj series about titles -->
 
             <div class="card__movie" v-if="info.original_title">
