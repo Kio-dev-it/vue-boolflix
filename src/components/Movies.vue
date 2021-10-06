@@ -1,12 +1,12 @@
 <template>
     <main>
-        <h2>Movies</h2>
+        <h2 v-if="movieInfo.length > 0">Movies</h2>
         <ul v-for="elm in movieInfo" :key="elm.id">
             <li>
                 <MovieCard :info="elm"/>
             </li>
         </ul>
-        <h2>TV Series</h2>
+        <h2 v-if="seriesInfo.length > 0">TV Series</h2>
         <ul v-for="elm in seriesInfo" :key="elm.id">
             <li>
                 <MovieCard :info="elm"/>
