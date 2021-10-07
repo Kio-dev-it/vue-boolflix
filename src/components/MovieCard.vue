@@ -15,7 +15,10 @@
                     <!-- i use this v-if to avoid showing the title of the show if it is the same as the original one -->
                     <div v-if="info.title !== info.original_title || info.name !== info.original_name"><strong>Titolo orginale:</strong> {{info.original_title || info.original_name}}</div>
                 </div>
-                <div><strong>Lingua:</strong><lang-flag :iso="info.original_language" :squared="true"/></div>
+                <div><strong>Lingua:</strong>
+                <lang-flag v-if="Object.keys(this.langObj).includes(info.original_language)" :iso="info.original_language" :squared="true"/>
+                <font-awesome-icon v-else :icon="questionMark"/>
+                </div>
                 <div><strong>Voto:</strong> <font-awesome-icon :icon="starSolid" v-for="elm in starMaker()" :key="elm"/><font-awesome-icon :icon="starEmpty" v-for="elm in starDestroyer()" :key="elm"/></div>
                 <div v-if="info.overview"><strong>Overview:</strong> {{info.overview}}</div>
             </div>
@@ -27,6 +30,7 @@ import LangFlag from 'vue-lang-code-flags';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 
 export default {
@@ -40,9 +44,51 @@ export default {
         return {
             starSolid: fasStar,
             starEmpty: farStar, 
+            questionMark: faQuestion,
             minStar: 0,
             maxStar: 5,
-            maxVote: 10
+            maxVote: 10,
+            langObj:{
+                am: 'am',
+                ar: 'sy',
+                az: 'az',
+                bn: 'bd',
+                be: 'be',
+                ca: 'es-ca',
+                cs: 'cz',
+                de: 'de',
+                en: 'gb',
+                es: 'es',
+                et: 'et',
+                fa: 'ir',
+                fr: 'fr',
+                bg: 'bg',
+                ha: 'ng',
+                hi: 'in',
+                hu: 'hu',
+                hy: 'am',
+                it: 'it',
+                ja: 'jp',
+                jv: 'id',
+                km: 'km',
+                ko: 'kr',
+                lv: 'lv',
+                mr: 'in',
+                ms: 'my',
+                pl: 'pl',
+                pt: 'pt',
+                ro: 'ro',
+                ru: 'ru',
+                sw: 'ke',
+                ta: 'lk',
+                te: 'in',
+                th: 'th',
+                tr: 'tr',
+                uk: 'ua',
+                uz: 'uz',
+                vi: 'vn',
+                zh: 'cn',
+            }
         }
     },
     methods:{
