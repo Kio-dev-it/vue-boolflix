@@ -5,7 +5,7 @@
         </p>
         <form>
             <input type="text" placeholder="Cerca il film" v-model="searchText">
-            <button @click.prevent="$emit('searchMovie', searchText)"><font-awesome-icon :icon="searchLens" class="align-middle"/></button>
+            <button @click.prevent="$emit('searchMovie', searchText), searchText=''"><font-awesome-icon :icon="searchLens" class="align-middle"/></button>
         </form>
     </header>
 </template>
@@ -54,6 +54,12 @@ export default {
             border: none;
             border-radius: .125rem;
             margin-left: 6px;
+        }
+    }
+
+    @media screen and (max-width: 576.1px){
+        input{
+            width: 8rem;
         }
     }
 
