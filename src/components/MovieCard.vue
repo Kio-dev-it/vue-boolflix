@@ -162,6 +162,8 @@ export default {
                     right: .875rem;
                     bottom: 3.125rem;
                     font-size: 1.25rem;
+                    background-color: $mainBgColor;
+
 
                     span{
                         color: $mainTextColor;
