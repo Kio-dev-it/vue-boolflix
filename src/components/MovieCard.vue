@@ -17,6 +17,7 @@
                 </div>
                 <div><strong>Lingua:</strong><lang-flag :iso="info.original_language" :squared="true"/></div>
                 <div><strong>Voto:</strong> <font-awesome-icon :icon="starSolid" v-for="elm in starMaker()" :key="elm"/><font-awesome-icon :icon="starEmpty" v-for="elm in starDestroyer()" :key="elm"/></div>
+                <div v-if="info.overview"><strong>Overview:</strong> {{info.overview}}</div>
             </div>
     </div>
 </template>
@@ -69,6 +70,13 @@ export default {
         color: #fff;
         max-width: 14rem;
         height: calc(14rem * 1.5);
+        overflow-y: hidden;
+        background-color: $mainBgColor;
+
+        &:hover{
+            overflow-y: auto;
+        }
+
 
         &__image{
             height: 100%;
@@ -123,7 +131,6 @@ export default {
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: $mainBgColor;
 
             .flag-icon{
                 margin-left: .5rem;
@@ -144,6 +151,10 @@ export default {
         }
     
     }
+
+::-webkit-scrollbar {
+    width: 1px;
+    }   
 
 
 </style>
