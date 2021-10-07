@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <Header @searchMovie="searching"/>
-    <Movies :infoSearch="searchMovie"/>
-    <Series :infoSearch="searchMovie"/>
+    <div class="container-app">
+      <Movies :infoSearch="searchMovie"/>
+      <Series :infoSearch="searchMovie"/>
+    </div>
 
   </div>
 </template>
@@ -35,5 +37,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/style/common.scss';
+
+  #app{
+    background-color: $secondaryColor;
+    .container-app{
+      margin-top: 4.375rem;
+      min-height: calc(100vh - 4.375rem);
+      overflow-y: auto;
+    }
+  }
 
 </style>

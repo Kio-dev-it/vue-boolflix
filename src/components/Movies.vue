@@ -1,11 +1,13 @@
 <template>
     <main>
         <h2 v-if="movieInfo.length > 0">Movies</h2>
-        <ul v-for="elm in movieInfo" :key="elm.id">
-            <li>
+        <div class="row row-cols-xl-5 container mx-auto">
+            <div v-for="elm in movieInfo" :key="elm.id" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl p-2">
+
                 <MovieCard :info="elm"/>
-            </li>
-        </ul>
+            
+            </div>
+        </div>
     </main>
 </template>
 
@@ -49,4 +51,13 @@ export default {
 
 <style lang="scss" scoped>
 
+    main{
+        padding-top: 16px;
+        
+        h2{
+            text-align: center;
+            color:#fff;
+        }
+
+    }
 </style>
