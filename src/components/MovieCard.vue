@@ -39,7 +39,10 @@ export default {
     data() {
         return {
             starSolid: fasStar,
-            starEmpty: farStar
+            starEmpty: farStar, 
+            minStar: 0,
+            maxStar: 5,
+            maxVote: 10
         }
     },
     methods:{
@@ -51,10 +54,10 @@ export default {
             return arrStar;
         },
         starMaker() {
-            return this.consecArrMaker(0, Math.ceil( this.info.vote_average / 2 ));
+            return this.consecArrMaker(this.minStar, Math.ceil( this.info.vote_average / (this.maxVote / this.maxStar) ));
         },
         starDestroyer(){
-            return this.consecArrMaker( Math.ceil( this.info.vote_average / 2 ), 5);
+            return this.consecArrMaker( Math.ceil( this.info.vote_average / (this.maxVote / this.maxStar) ), this.maxStar );
         }
 
     }
