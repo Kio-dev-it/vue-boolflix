@@ -10,16 +10,18 @@
             </div>
 
             <div class="card__info">
-                <div class="card__movie">
-                    <div><strong>Titolo:</strong> {{info.title || info.name}}</div>
-                    <!-- i use this v-if to avoid showing the title of the show if it is the same as the original one -->
-                    <div v-if="info.title !== info.original_title || info.name !== info.original_name"><strong>Titolo orginale:</strong> {{info.original_title || info.original_name}}</div>
-                </div>
+                <div><strong>Titolo:</strong> {{info.title || info.name}}</div>
+                
+                <!-- i use this v-if to avoid showing the title of the show if it is the same as the original one -->
+                <div v-if="info.title !== info.original_title || info.name !== info.original_name"><strong>Titolo orginale:</strong> {{info.original_title || info.original_name}}</div>
+                
                 <div><strong>Lingua:</strong>
                 <lang-flag v-if="Object.keys(this.langObj).includes(info.original_language)" :iso="info.original_language" :squared="true"/>
                 <font-awesome-icon v-else :icon="questionMark"/>
                 </div>
-                <div><strong>Voto:</strong> <font-awesome-icon :icon="starSolid" v-for="elm in starMaker()" :key="elm"/><font-awesome-icon :icon="starEmpty" v-for="elm in starDestroyer()" :key="elm"/></div>
+                
+                <div><strong>Voto:</strong> <font-awesome-icon class="solid" :icon="starSolid" v-for="elm in starMaker()" :key="elm"/><font-awesome-icon class="empty" :icon="starEmpty" v-for="elm in starDestroyer()" :key="elm"/></div>
+                
                 <div v-if="info.overview"><strong>Overview:</strong> {{info.overview}}</div>
             </div>
     </div>
@@ -186,6 +188,14 @@ export default {
             .flag-icon{
                 margin-left: .5rem;
                 border-radius: 50%;
+            }
+
+            .solid{
+                color: #e7c631;
+            }
+
+            .empty{
+                color: #9a9a9a
             }
         }
     }
