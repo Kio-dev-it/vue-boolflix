@@ -2,8 +2,8 @@
   <div id="app">
     <Header @searchMovie="searching"/>
     <div class="container-app">
-      <Movies :infoSearch="searchMovie"/>
-      <Series :infoSearch="searchMovie"/>
+      <Movies :infoSearch="searchMovie" :api_key="api_key"/>
+      <Series :infoSearch="searchMovie" :api_key="api_key"/>
     </div>
 
   </div>
@@ -25,7 +25,8 @@ export default {
   },
   data(){
     return{
-      searchMovie:""
+      searchMovie:"", 
+      api_key: '5f982b7a134b61a8191ea027b951c118'
     }
   },
   methods:{

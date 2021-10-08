@@ -17,7 +17,7 @@ import MovieCard from './MovieCard.vue';
 
 export default {
     name: 'Movies',
-    props: ['infoSearch'],
+    props: ['infoSearch', 'api_key'],
     components: {
         MovieCard
     },
@@ -31,7 +31,7 @@ export default {
         axios
             .get("https://api.themoviedb.org/3/trending/tv/week",{
                 params:{
-                    api_key: '5f982b7a134b61a8191ea027b951c118'
+                    api_key: this.api_key,
                 }
             }
             )
@@ -49,7 +49,7 @@ export default {
             axios
                 .get("https://api.themoviedb.org/3/search/tv", {
                     params: {
-                        api_key: '5f982b7a134b61a8191ea027b951c118',
+                        api_key: this.api_key,
                         query: this.infoSearch,
                         language: 'it-IT'
                     }
