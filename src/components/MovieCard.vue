@@ -121,23 +121,10 @@ export default {
         color: #fff;
         max-width: 14rem;
         height: calc(14rem * 1.5);
-        overflow-y: hidden;
         background-color: $mainBgColor;
-
-        &:hover{
-            overflow-y: auto;
-        }
-
 
         &__image{
             height: 100%;
-            z-index: 1;
-            opacity: 1;
-            transition: opacity .3s ease-in-out;
-
-            &:hover{
-                opacity: 0;
-            }
 
             img{
                 width: 100%;
@@ -184,6 +171,17 @@ export default {
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            overflow-y: hidden;
+            background-color: $mainBgColor;
+
+            &:hover{
+                opacity: 1;
+                overflow-y: auto;
+
+            }
 
             .flag-icon{
                 margin-left: .5rem;
