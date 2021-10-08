@@ -26,6 +26,22 @@ export default {
             seriesInfo: []
         }
     },
+    created(){
+        //cal for trending tv shows
+        axios
+            .get("https://api.themoviedb.org/3/trending/tv/week",{
+                params:{
+                    api_key: '5f982b7a134b61a8191ea027b951c118'
+                }
+            }
+            )
+            .then(
+                (resp)=>{
+                        this.seriesInfo = resp.data.results;
+                    }
+            )
+
+    },
     watch:{
         infoSearch: function() {
             

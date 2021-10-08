@@ -26,6 +26,22 @@ export default {
             movieInfo: [], 
         }
     },
+    created(){
+        //cal for trending movies
+        axios
+            .get("https://api.themoviedb.org/3/trending/movie/week",{
+                params:{
+                    api_key: '5f982b7a134b61a8191ea027b951c118'
+                }
+            }
+            )
+            .then(
+                (resp)=>{
+                        this.movieInfo = resp.data.results;
+                    }
+            )
+
+    },
     watch:{
         infoSearch: function() {
             
